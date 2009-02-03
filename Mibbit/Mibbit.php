@@ -31,6 +31,13 @@ class MibbitPlugin extends MantisPlugin {
 	}
 
 	/**
+	 * Load plugin API
+	 */
+	function init() {
+		require_once( 'Mibbit.API.php' );
+	}
+
+	/**
 	 * Plugin configuration settings
 	 */
 	function config() {
