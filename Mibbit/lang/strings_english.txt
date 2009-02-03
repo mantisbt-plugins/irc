@@ -1,0 +1,30 @@
+<?php
+# Copyright (C) 2008	John Reese
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+$s_plugin_Mibbit_ = '';
+$s_plugin_Mibbit_title = 'Mibbit IRC';
+$s_plugin_Mibbit_description = 'Integrate the Mibbit IRC widget with MantisBT.';
+
+$s_plugin_Mibbit_configuration = 'Configuration';
+$s_plugin_Mibbit_view_threshold = 'View Threshold';
+$s_plugin_Mibbit_manage_threshold = 'Manage Threshold';
+$s_plugin_Mibbit_irc_server = 'IRC Server';
+$s_plugin_Mibbit_irc_channel = 'Channel';
+$s_plugin_Mibbit_irc_nick_prefix = 'Nickname Prefix';
+$s_plugin_Mibbit_irc_nick_prefix_help = '<span class="small">Question marks will be replaced by random digits.</span>';
+$s_plugin_Mibbit_mibbit_settings = 'Mibbit Settings ID';
+$s_plugin_Mibbit_options = 'Extra Options';
+$s_plugin_Mibbit_use_popup = 'Load in Popup Window';
+$s_plugin_Mibbit_show_motd = 'Show Message of the Day';
+$s_plugin_Mibbit_update = 'Update';
+
