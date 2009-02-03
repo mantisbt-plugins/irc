@@ -51,7 +51,7 @@ function mibbit_generate_uri() {
 function mibbit_iframe() {
 	$t_uri = mibbit_generate_uri();
 
-	return '<iframe width="600" height="380" scrolling="no" frameborder="0" src="' . $t_uri . '"></iframe>';
+	return '<iframe width="100%" height="450" scrolling="no" frameborder="0" src="' . $t_uri . '"></iframe>';
 }
 
 /**

@@ -28,7 +28,7 @@ html_page_top2();
 </tr>
 
 <tr>
-<td colspan="2">
+<td class="center" colspan="2">
 
 <?php echo mibbit_iframe() ?>
 

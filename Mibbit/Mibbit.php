@@ -50,7 +50,7 @@ class MibbitPlugin extends MantisPlugin {
 			'irc_nick_prefix' => 'mibbit_?????',
 
 			'mibbit_settings' => '',
-			'use_popup' => ON,
+			'use_popup' => OFF,
 			'show_motd' => OFF,
 		);
 	}
@@ -60,6 +60,15 @@ class MibbitPlugin extends MantisPlugin {
 	 */
 	function hooks() {
 		return array(
+			'EVENT_MENU_MAIN' => 'menu',
 		);
+	}
+
+	/**
+	 * Show the IRC link.
+	 */
+	function menu( $p_event ) {
+		$t_use_popup = plugin_config_get( 'use_popup' );
+		return ( $t_use_popup ? mibbit_popup() : '<a href="' . plugin_page( 'irc' ) . '">' . plugin_lang_get( 'irc' ) . '</a>' );
 	}
 }
