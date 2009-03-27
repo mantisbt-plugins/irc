@@ -42,11 +42,11 @@ class MibbitPlugin extends MantisPlugin {
 	 */
 	function config() {
 		return array(
-			'view_threshold' => VIEWER,
+			'view_threshold' => REPORTER,
 			'manage_threshold' => ADMINISTRATOR,
 
 			'irc_server' => 'irc.freenode.net',
-			'irc_channel' => '#mantishelp',
+			'irc_channel' => '',
 			'irc_nick_prefix' => 'mibbit_?????',
 
 			'mibbit_settings' => '',
