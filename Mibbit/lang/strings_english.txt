@@ -15,7 +15,7 @@ $s_plugin_Mibbit_ = '';
 $s_plugin_Mibbit_title = 'Mibbit IRC';
 $s_plugin_Mibbit_description = 'Integrate the Mibbit IRC widget with MantisBT.';
 
-$s_plugin_Mibbit_irc = 'IRC';
+$s_plugin_Mibbit_irc = 'IRC Chat';
 
 $s_plugin_Mibbit_configuration = 'Configuration';
 $s_plugin_Mibbit_view_threshold = 'View Threshold';
