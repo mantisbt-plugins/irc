@@ -69,7 +69,9 @@ class MibbitPlugin extends MantisPlugin {
 	 * Show the IRC link.
 	 */
 	function menu( $p_event ) {
-		$t_use_popup = plugin_config_get( 'use_popup' );
-		return ( $t_use_popup ? mibbit_popup() : '<a href="' . plugin_page( 'irc' ) . '">' . plugin_lang_get( 'irc' ) . '</a>' );
+		if ( access_has_global_level( plugin_config_get( 'view_threshold' ) ) ) {
+			$t_use_popup = plugin_config_get( 'use_popup' );
+			return ( $t_use_popup ? mibbit_popup() : '<a href="' . plugin_page( 'irc' ) . '">' . plugin_lang_get( 'irc' ) . '</a>' );
+		}
 	}
 }
