@@ -50,6 +50,7 @@ class MibbitPlugin extends MantisPlugin {
 			'irc_nick_prefix' => 'mibbit_?????',
 
 			'mibbit_settings' => '',
+			'use_username' => ON,
 			'use_popup' => OFF,
 			'show_motd' => OFF,
 		);

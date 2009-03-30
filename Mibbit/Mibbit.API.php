@@ -22,10 +22,16 @@ function mibbit_generate_uri() {
 		return $s_uri;
 	}
 
+	if ( plugin_config_get( 'use_username' ) && !current_user_is_anonymous() ) {
+		$t_nick = user_get_field( auth_get_current_user_id(), 'username' );
+	} else {
+		$t_nick = plugin_config_get( 'irc_nick_prefix', 'Mibbit' );
+	}
+
 	$t_uri_params = array(
 		'server' => plugin_config_get( 'irc_server', 'Mibbit' ),
 		'channel' => plugin_config_get( 'irc_channel', 'Mibbit' ),
-		'nick' => plugin_config_get( 'irc_nick_prefix', 'Mibbit' ),
+		'nick' => $t_nick,
 		'settings' => plugin_config_get( 'mibbit_settings', 'Mibbit' ),
 		'noServerMotd' => ( plugin_config_get( 'show_motd', 'Mibbit' ) ? 'false' : 'true' ),
 	);

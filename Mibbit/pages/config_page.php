@@ -67,6 +67,8 @@ print_manage_menu();
 <tr <?php echo helper_alternate_class() ?>>
 <td class="category"><?php echo plugin_lang_get( 'options' ) ?></td>
 <td>
+	<label><input type="checkbox" name="use_username" <?php echo ( plugin_config_get( 'use_username' ) ? 'checked="checked" ' : '' ) ?>/>
+	<?php echo plugin_lang_get( 'use_username' ) ?></label><br/>
 	<label><input type="checkbox" name="use_popup" <?php echo ( plugin_config_get( 'use_popup' ) ? 'checked="checked" ' : '' ) ?>/>
 	<?php echo plugin_lang_get( 'use_popup' ) ?></label><br/>
 	<label><input type="checkbox" name="show_motd" <?php echo ( plugin_config_get( 'show_motd' ) ? 'checked="checked" ' : '' ) ?>/>

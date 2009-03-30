@@ -26,6 +26,7 @@ $s_plugin_Mibbit_irc_nick_prefix = 'Nickname Prefix';
 $s_plugin_Mibbit_irc_nick_prefix_help = '<span class="small">Question marks will be replaced by random digits.</span>';
 $s_plugin_Mibbit_mibbit_settings = 'Mibbit Settings ID';
 $s_plugin_Mibbit_options = 'Extra Options';
+$s_plugin_Mibbit_use_username = 'Use MantisBT Username as Nick';
 $s_plugin_Mibbit_use_popup = 'Load in Popup Window';
 $s_plugin_Mibbit_show_motd = 'Show Message of the Day';
 $s_plugin_Mibbit_update = 'Update';

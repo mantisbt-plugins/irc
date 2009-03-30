@@ -30,6 +30,7 @@ maybe_set_option( 'irc_channel', gpc_get_string( 'irc_channel' ) );
 maybe_set_option( 'irc_nick_prefix', gpc_get_string( 'irc_nick_prefix' ) );
 
 maybe_set_option( 'mibbit_settings', gpc_get_string( 'mibbit_settings' ) );
+maybe_set_option( 'use_username', gpc_get_bool( 'use_username', OFF ) );
 maybe_set_option( 'use_popup', gpc_get_bool( 'use_popup', OFF ) );
 maybe_set_option( 'show_motd', gpc_get_bool( 'show_motd', OFF ) );
 
