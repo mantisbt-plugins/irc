@@ -11,7 +11,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-form_security_validate( 'plugin_Mibbit_config_update' );
+form_security_validate( 'plugin_IRC_config_update' );
 
 access_ensure_global_level( plugin_config_get( 'manage_threshold' ) );
 auth_reauthenticate();
@@ -34,7 +34,7 @@ maybe_set_option( 'use_username', gpc_get_bool( 'use_username', OFF ) );
 maybe_set_option( 'use_popup', gpc_get_bool( 'use_popup', OFF ) );
 maybe_set_option( 'show_motd', gpc_get_bool( 'show_motd', OFF ) );
 
-form_security_purge( 'plugin_Mibbit_config_update' );
+form_security_purge( 'plugin_IRC_config_update' );
 print_successful_redirect( plugin_page( 'config_page', true ) );
 
 
