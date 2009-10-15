@@ -62,4 +62,25 @@ abstract class IRCClient {
 
 		return '<iframe width="100%" height="450" scrolling="no" frameborder="0" src="' . $uri . '"></iframe>';
 	}
+
+	/**
+	 * Generate a nickname by replacing question marks with random numbers.
+	 * @return string IRC nickname
+	 */
+	final protected function nickname() {
+		plugin_push_current( 'IRC' );
+
+		if ( plugin_config_get( 'use_username' ) && !current_user_is_anonymous() ) {
+			$t_nick = user_get_field( auth_get_current_user_id(), 'username' );
+		} else {
+			$t_nick = plugin_config_get( 'irc_nickname' );
+			do {
+				$t_nick = preg_replace( '/(\?)/', rand( 0, 9 ), $t_nick, 1, $t_count );
+			} while( $t_count > 0 );
+		}
+
+		plugin_pop_current();
+
+		return $t_nick;
+	}
 }

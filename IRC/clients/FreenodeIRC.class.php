@@ -21,17 +21,8 @@ class FreenodeIRC extends IRCClient {
 			return $s_uri;
 		}
 
-		if ( plugin_config_get( 'use_username' ) && !current_user_is_anonymous() ) {
-			$t_nick = user_get_field( auth_get_current_user_id(), 'username' );
-		} else {
-			$t_nick = plugin_config_get( 'irc_nick_prefix' );
-			do {
-				$t_nick = preg_replace( '/(\?)/', rand( 0, 9 ), $t_nick, 1, $count );
-			} while( $count > 0 );		
-		}
-
 		$t_uri_params = array(
-			'nick' => $t_nick,
+			'nick' => $this->nickname(),
 			'channels' => plugin_config_get( 'irc_channel' ),
 			'prompt' => 1,
 		);

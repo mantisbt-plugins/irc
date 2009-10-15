@@ -21,16 +21,10 @@ class MibbitIRC extends IRCClient {
 			return $s_uri;
 		}
 
-		if ( plugin_config_get( 'use_username' ) && !current_user_is_anonymous() ) {
-			$t_nick = user_get_field( auth_get_current_user_id(), 'username' );
-		} else {
-			$t_nick = plugin_config_get( 'irc_nick_prefix' );
-		}
-
 		$t_uri_params = array(
 			'server' => plugin_config_get( 'irc_server' ),
 			'channel' => plugin_config_get( 'irc_channel' ),
-			'nick' => $t_nick,
+			'nick' => $this->nickname(),
 			'settings' => plugin_config_get( 'mibbit_settings' ),
 			'noServerMotd' => ( plugin_config_get( 'show_motd' ) ? 'false' : 'true' ),
 		);
