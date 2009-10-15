@@ -22,7 +22,7 @@ function mibbit_generate_uri() {
 		return $s_uri;
 	}
 
-	if ( plugin_config_get( 'use_username' ) && !current_user_is_anonymous() ) {
+	if ( plugin_config_get( 'use_username', 'IRC' ) && !current_user_is_anonymous() ) {
 		$t_nick = user_get_field( auth_get_current_user_id(), 'username' );
 	} else {
 		$t_nick = plugin_config_get( 'irc_nick_prefix', 'IRC' );
@@ -54,7 +54,7 @@ function mibbit_generate_uri() {
  * Generate the HTML for an iframe widget.
  * @return string HTML
  */
-function mibbit_iframe() {
+function irc_iframe() {
 	$t_uri = mibbit_generate_uri();
 
 	return '<iframe width="100%" height="450" scrolling="no" frameborder="0" src="' . $t_uri . '"></iframe>';
@@ -64,7 +64,7 @@ function mibbit_iframe() {
  * Generate the HTML for a popup widget.
  * @return string HTML
  */
-function mibbit_popup( $p_title=null ) {
+function irc_popup( $p_title=null ) {
 	$t_uri = mibbit_generate_uri();
 
 	if ( is_null( $p_title ) ) {

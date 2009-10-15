@@ -73,7 +73,7 @@ class IRCPlugin extends MantisPlugin {
 	function menu( $p_event ) {
 		if ( access_has_global_level( plugin_config_get( 'view_threshold' ) ) ) {
 			$t_use_popup = plugin_config_get( 'use_popup' );
-			return ( $t_use_popup ? mibbit_popup() : '<a href="' . plugin_page( 'irc' ) . '">' . plugin_lang_get( 'irc' ) . '</a>' );
+			return ( $t_use_popup ? irc_popup() : '<a href="' . plugin_page( 'irc' ) . '">' . plugin_lang_get( 'irc' ) . '</a>' );
 		} else {
 			return array();
 		}

@@ -13,8 +13,6 @@
 
 access_ensure_global_level( plugin_config_get( 'view_threshold' ) );
 
-$t_mibbit_uri = mibbit_generate_uri();
-
 html_page_top1( plugin_lang_get( 'irc' ) );
 html_page_top2();
 ?>
@@ -24,13 +22,13 @@ html_page_top2();
 
 <tr>
 <td class="form-title"><?php echo plugin_lang_get( 'irc' ) ?></td>
-<td class="right"><?php echo mibbit_popup( plugin_lang_get( 'use_popup' ) ) ?></td>
+<td class="right"><?php echo irc_popup( plugin_lang_get( 'use_popup' ) ) ?></td>
 </tr>
 
 <tr>
 <td class="center" colspan="2">
 
-<?php echo mibbit_iframe() ?>
+<?php echo irc_iframe() ?>
 
 </td>
 </tr>
