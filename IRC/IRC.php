@@ -12,6 +12,8 @@
 # GNU General Public License for more details.
 
 class IRCPlugin extends MantisPlugin {
+	static $clients;
+
 	/**
 	 * Plugin information
 	 */
@@ -34,6 +36,7 @@ class IRCPlugin extends MantisPlugin {
 	 * Load plugin API
 	 */
 	function init() {
+		require_once( 'IRCClient.class.php' );
 	}
 
 	/**
@@ -63,24 +66,7 @@ class IRCPlugin extends MantisPlugin {
 	function hooks() {
 		return array(
 			'EVENT_MENU_MAIN' => 'menu',
-			'EVENT_CORE_READY' => 'ready',
 		);
-	}
-
-	function ready() {
-		switch( plugin_config_get( 'irc_client' ) ) {
-			case 'mibbit':
-				require_once( 'Mibbit.API.php' );
-				break;
-
-			case 'freenode':
-				require_once( 'Freenode.API.php' );
-				break;
-
-			default:
-				# error?
-				break;
-		}
 	}
 
 	/**
@@ -88,10 +74,68 @@ class IRCPlugin extends MantisPlugin {
 	 */
 	function menu( $p_event ) {
 		if ( access_has_global_level( plugin_config_get( 'view_threshold' ) ) ) {
+			$t_client = IRCPlugin::client();
 			$t_use_popup = plugin_config_get( 'use_popup' );
-			return ( $t_use_popup ? irc_popup() : '<a href="' . plugin_page( 'irc' ) . '">' . plugin_lang_get( 'irc' ) . '</a>' );
-		} else {
-			return array();
+
+			if ( $t_client !== null ) {
+				return ( $t_use_popup ? $t_client->popup() : '<a href="' . plugin_page( 'irc' ) . '">' . plugin_lang_get( 'irc' ) . '</a>' );
+			}
 		}
+		return array();
+	}
+
+	/**
+	 * Return the currently selected IRC client.
+	 * @return object Preferred IRCClient implementation
+	 */
+	static function client() {
+		$t_clients = IRCPlugin::clients();
+		$t_preferred_client = plugin_config_get( 'irc_client' );
+
+		if ( isset( $t_clients[ $t_preferred_client ] ) ) {
+			return $t_clients[ $t_preferred_client ];
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Initialize and catalog available IRC clients
+	 * @return array Available IRCClient implementations
+	 */
+	static function clients() {
+		static $s_clients = null;
+
+		# return cached client info
+		if ( null !== $s_clients ) {
+			return $s_clients;
+		}
+
+		$s_clients = array();
+		$t_client_path = config_get_global( 'plugin_path' ) . 'IRC/clients/';
+
+		# look for IRCClient implementations in the IRC/clients/ directory.
+		if( $t_dir = opendir( $t_client_path ) ) {
+			while(( $t_file = readdir( $t_dir ) ) !== false ) {
+				if( '.' == $t_file || '..' == $t_file ) {
+					continue;
+				}
+
+				# make sure the file is properly named to discover the class name
+				if( is_file( $t_client_path . $t_file ) && preg_match( '/^([a-zA-Z0-9_]*)\.class\.php$/', $t_file, $t_matches ) ) {
+					include_once( $t_client_path . $t_file );
+					$t_class = $t_matches[1];
+
+					# make sure the auto-discovered class name exists and subclasses IRCClient
+					if ( class_exists( $t_class ) && is_subclass_of( $t_class, 'IRCClient' ) ) {
+						$t_client = new $t_class();
+						$s_clients[ $t_client->name ] = $t_client;
+					}
+				}
+			}
+			closedir( $t_dir );
+		}
+
+		return $s_clients;
 	}
 }

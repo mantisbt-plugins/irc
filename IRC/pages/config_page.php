@@ -45,9 +45,9 @@ print_manage_menu();
 <tr <?php echo helper_alternate_class() ?>>
 <td class="category"><?php echo plugin_lang_get( 'irc_client' ) ?></td>
 <td><select name="irc_client">
-	<?php foreach( array( 'mibbit','freenode' ) as $client ) {
-		echo '<option value="', $client, '" ', ( plugin_config_get( 'irc_client' ) == $client ? 'selected="selected"' : '' ),
-			'>', plugin_lang_get( 'irc_client_' . $client ), '</option>';
+	<?php foreach( IRCPlugin::clients() as $name => $client ) {
+		echo '<option value="', $name, '" ', ( plugin_config_get( 'irc_client' ) == $name ? 'selected="selected"' : '' ),
+			'>', string_display_line( $name ), '</option>';
 	} ?>
 </select></td>
 </tr>
