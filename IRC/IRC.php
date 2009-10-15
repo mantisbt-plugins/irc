@@ -36,7 +36,7 @@ class IRCPlugin extends MantisPlugin {
 	 * Load plugin API
 	 */
 	function init() {
-		require_once( 'IRCClient.class.php' );
+		require_once( config_get_global( 'plugin_path' ) . 'IRC/IRCClient.class.php' );
 	}
 
 	/**
