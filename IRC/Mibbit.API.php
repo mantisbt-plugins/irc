@@ -25,15 +25,15 @@ function mibbit_generate_uri() {
 	if ( plugin_config_get( 'use_username' ) && !current_user_is_anonymous() ) {
 		$t_nick = user_get_field( auth_get_current_user_id(), 'username' );
 	} else {
-		$t_nick = plugin_config_get( 'irc_nick_prefix', 'Mibbit' );
+		$t_nick = plugin_config_get( 'irc_nick_prefix', 'IRC' );
 	}
 
 	$t_uri_params = array(
-		'server' => plugin_config_get( 'irc_server', 'Mibbit' ),
-		'channel' => plugin_config_get( 'irc_channel', 'Mibbit' ),
+		'server' => plugin_config_get( 'irc_server', 'IRC' ),
+		'channel' => plugin_config_get( 'irc_channel', 'IRC' ),
 		'nick' => $t_nick,
-		'settings' => plugin_config_get( 'mibbit_settings', 'Mibbit' ),
-		'noServerMotd' => ( plugin_config_get( 'show_motd', 'Mibbit' ) ? 'false' : 'true' ),
+		'settings' => plugin_config_get( 'mibbit_settings', 'IRC' ),
+		'noServerMotd' => ( plugin_config_get( 'show_motd', 'IRC' ) ? 'false' : 'true' ),
 	);
 
 	$s_uri = 'http://widget.mibbit.com/?';
@@ -68,7 +68,7 @@ function mibbit_popup( $p_title=null ) {
 	$t_uri = mibbit_generate_uri();
 
 	if ( is_null( $p_title ) ) {
-		$p_title = plugin_lang_get( 'irc', 'Mibbit' );
+		$p_title = plugin_lang_get( 'irc', 'IRC' );
 	}
 
 	return '<a href="' . $t_uri . '" target="_blank">' . $p_title . '</a>';
