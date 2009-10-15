@@ -34,7 +34,6 @@ class IRCPlugin extends MantisPlugin {
 	 * Load plugin API
 	 */
 	function init() {
-		require_once( 'Mibbit.API.php' );
 	}
 
 	/**
@@ -64,7 +63,24 @@ class IRCPlugin extends MantisPlugin {
 	function hooks() {
 		return array(
 			'EVENT_MENU_MAIN' => 'menu',
+			'EVENT_CORE_READY' => 'ready',
 		);
+	}
+
+	function ready() {
+		switch( plugin_config_get( 'irc_client' ) ) {
+			case 'mibbit':
+				require_once( 'Mibbit.API.php' );
+				break;
+
+			case 'freenode':
+				require_once( 'Freenode.API.php' );
+				break;
+
+			default:
+				# error?
+				break;
+		}
 	}
 
 	/**

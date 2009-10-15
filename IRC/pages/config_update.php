@@ -25,6 +25,7 @@ function maybe_set_option( $name, $value ) {
 maybe_set_option( 'view_threshold', gpc_get_int( 'view_threshold' ) );
 maybe_set_option( 'manage_threshold', gpc_get_int( 'manage_threshold' ) );
 
+maybe_set_option( 'irc_client', gpc_get_string( 'irc_client' ) );
 maybe_set_option( 'irc_server', gpc_get_string( 'irc_server' ) );
 maybe_set_option( 'irc_channel', gpc_get_string( 'irc_channel' ) );
 maybe_set_option( 'irc_nick_prefix', gpc_get_string( 'irc_nick_prefix' ) );

@@ -43,6 +43,16 @@ print_manage_menu();
 <tr class="spacer"><td></td></tr>
 
 <tr <?php echo helper_alternate_class() ?>>
+<td class="category"><?php echo plugin_lang_get( 'irc_client' ) ?></td>
+<td><select name="irc_client">
+	<?php foreach( array( 'mibbit','freenode' ) as $client ) {
+		echo '<option value="', $client, '" ', ( plugin_config_get( 'irc_client' ) == $client ? 'selected="selected"' : '' ),
+			'>', plugin_lang_get( 'irc_client_' . $client ), '</option>';
+	} ?>
+</select></td>
+</tr>
+
+<tr <?php echo helper_alternate_class() ?>>
 <td class="category"><?php echo plugin_lang_get( 'irc_server' ) ?></td>
 <td><input name="irc_server" value="<?php echo string_attribute( plugin_config_get( 'irc_server' ) ) ?>" size="20"/></td>
 </tr>
