@@ -63,8 +63,8 @@ print_manage_menu();
 </tr>
 
 <tr <?php echo helper_alternate_class() ?>>
-<td class="category"><?php echo plugin_lang_get( 'irc_nick_prefix' ) ?></td>
-<td><input name="irc_nick_prefix" value="<?php echo string_attribute( plugin_config_get( 'irc_nick_prefix' ) ) ?>" size="20"/><br/><?php echo plugin_lang_get( 'irc_nick_prefix_help' ) ?></td>
+<td class="category"><?php echo plugin_lang_get( 'irc_nickname' ) ?></td>
+<td><input name="irc_nickname" value="<?php echo string_attribute( plugin_config_get( 'irc_nickname' ) ) ?>" size="20"/><br/><?php echo plugin_lang_get( 'irc_nickname_help' ) ?></td>
 </tr>
 
 <tr class="spacer"><td></td></tr>

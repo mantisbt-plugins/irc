@@ -28,7 +28,7 @@ maybe_set_option( 'manage_threshold', gpc_get_int( 'manage_threshold' ) );
 maybe_set_option( 'irc_client', gpc_get_string( 'irc_client' ) );
 maybe_set_option( 'irc_server', gpc_get_string( 'irc_server' ) );
 maybe_set_option( 'irc_channel', gpc_get_string( 'irc_channel' ) );
-maybe_set_option( 'irc_nick_prefix', gpc_get_string( 'irc_nick_prefix' ) );
+maybe_set_option( 'irc_nickname', gpc_get_string( 'irc_nickname' ) );
 
 maybe_set_option( 'mibbit_settings', gpc_get_string( 'mibbit_settings' ) );
 maybe_set_option( 'use_username', gpc_get_bool( 'use_username', OFF ) );
