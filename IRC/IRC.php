@@ -45,9 +45,11 @@ class IRCPlugin extends MantisPlugin {
 			'view_threshold' => REPORTER,
 			'manage_threshold' => ADMINISTRATOR,
 
-			'irc_server' => 'irc.freenode.net',
+			'irc_client' => 'mibbit',
+
+			'irc_server' => 'irc.mibbit.net',
 			'irc_channel' => '',
-			'irc_nick_prefix' => 'mibbit_?????',
+			'irc_nick_prefix' => 'mantisbt_?????',
 
 			'mibbit_settings' => '',
 			'use_username' => ON,
